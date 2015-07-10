@@ -27,6 +27,18 @@
   text-align: center;
 }
 
+#my-title {
+  margin-top: 20px;
+}
+
+#more-text {
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 40px;
+  left: 0;
+  right: 0;
+}
+
 #email {
   text-align: center;
   margin-bottom: 10px;

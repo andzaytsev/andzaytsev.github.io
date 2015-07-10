@@ -35,6 +35,10 @@
   margin-right: 10px;
 }
 
+#li-logo {
+  border-radius: 15%;
+}
+
 #logos {
   margin-top: 50px;
   display: flex;

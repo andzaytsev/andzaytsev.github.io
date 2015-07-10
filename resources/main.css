@@ -11,6 +11,20 @@
   margin-top: 50px;
   display: block;
   border-radius: 100%;
+  height: 200px;
+  width: 200px;
+}
+
+.md-text {
+  font-family: 'Lato', sans-serif;
+  font-size: 36px;
+  text-align: center;
+}
+
+.sm-text {
+  font-family: 'Lato', sans-serif;
+  font-size: 24px;
+  text-align: center;
 }
 
 #email {

@@ -27,6 +27,20 @@
   text-align: center;
 }
 
+.logo {
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+#logos {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+}
+
 #my-title {
   margin-top: 20px;
 }

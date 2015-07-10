@@ -1,0 +1,21 @@
+#name {
+  font-size: 22px;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#face {
+  margin: auto;
+  display: block;
+  border-radius: 100%;
+}
+
+#email {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+#about {
+  text-align: center;
+}

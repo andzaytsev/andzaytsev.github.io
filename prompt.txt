@@ -1,0 +1,18 @@
+Instructions
+Below, you'll find instructions for your third writing assignment. Guided by Tavani’s comprehensive method (see lecture slides), you will build a strong argument that the practices described are either ethical or unethical. Last week, you were assigned both an ethical framework (duty-based, virtue-based, or consequence-based) and a position from which to argue. This week, you will still be assigned an ethical framework, but your position—ethical or unethical—will be based on your own analysis. Be sure to consider possible counterarguments to your position. What fallacies or misconceptions are in play?
+Within your essay, you also should address the questions below and use the references given. Again, your response should be one coherent essay, not a series of disconnected answers to the prompt questions. If you would like to cite any external sources in your essay, you may use any citation style you prefer (a simple numbered list of URLs at the bottom is fine); sources from this list can be alluded to (“According to the Washington Post…”) but do not need to be formally cited.
+As usual, your essay should be a text only file of 3,000 to 5,000 characters. You should copy it into the submission.txt file in your W3 svn directory and commit the changes. Instructions for using svn are available here. Remember that the deadline for writing assignments is Monday at 11:59pm (September 26th in this case.)
+Score Assured
+Score Assured is a British startup software company that provides landlords with a report that is supposed to help them decide whether someone would be a good tenant. After applying for a property, a prospective tenant is sent an “opt-in” link that, when clicked, gives Score Assured full access to their social media profiles (Twitter, LinkedIn, Facebook, etc.). After scraping the profiles and sending the data through analytical software, the company compiles a report detailing factors like personality and “financial stress level” that the landlord can use to determine whether or not to rent to the prospective tenant.
+Questions
+In the course of your argument, you should address the following questions.
+Is the data involved PII, NPI, or PPI? Descriptively private or normatively private?
+Does the way Score Assured uses data violate norms of appropriateness or of distribution?
+How do the privacy concerns in this scenario relate to questions of data merging, matching, and mining?
+Do you believe the data involved is best protected through informed consent, industry self-regulation, or legislation?
+Resources
+The Washington Post, “Creepy Startup” (in essay link)
+CNET, “Disturbing New Site Scrapes Facebook and Informs Landlords, Employers” (in essay link)
+The Verge, “Startup Lets Landlords Scan Tenants’ Facebook”
+Fortune, “This Invasive App Wants to Sell Your Private Data to Landlords”
+Gawker, “Startup Should Be Illegal”

@@ -11,10 +11,13 @@
 
         <link rel="stylesheet" href="resources/reader-css/normalize.css">
         <link rel="stylesheet" href="resources/reader-css/main.css">
+        <link rel="stylesheet" href="resources/jquery-ui.min.css">
+        <link rel="stylesheet" href="resources/jquery-ui.theme.min.css">
 
 
         <!-- EPUBJS Renderer -->
         <script src="resources/jquery.min.js"></script>
+        <script src="resources/jquery-ui.min.js"></script>
         <script src="resources/zip.min.js"></script>
         <script src="resources/epub.min.js"></script>
         <script src="resources/hooks.min.js"></script>
@@ -78,73 +81,108 @@
          <script>
             "use strict";
 
+            var dialog;
+
+            function displayBook(path) {
+              EPUBJS.cssPath = "resources/reader-css/";
+              ePubReader(path);
+            }
+
+            function submitSelection() {
+              dialog.dialog("close");
+              $('#epubreader').show();
+              var fname = $('#bookfn :selected').val();
+              displayBook('books/' + fname);
+            }
+
             document.onreadystatechange = function () {
               if (document.readyState == "complete") {
-                EPUBJS.cssPath = "resources/reader-css/";
-                ePubReader("books/ere.epub");
+                // Hide the reader at first
+                $('#epubreader').hide();
+                // Create the modal for book selection
+                dialog = $('#book-dialog').dialog({
+                  modal: true,
+                  buttons: {
+                    "Submit": submitSelection
+                  }
+                })
+
+                //displayBook("books/" + ere.epub);
+
               }
             };
-            //var Book = ePub("books/ere.epub");
 
         </script>
     </head>
     <body>
-      <div id="sidebar">
-      <div id="panels">
-        <input id="searchBox" placeholder="search" type="search">
-
-        <a id="show-Search" class="show_view icon-search" data-view="Search">Search</a>
-        <a id="show-Toc" class="show_view icon-list-1 active" data-view="Toc">TOC</a>
-        <a id="show-Notes" class="show_view icon-edit" data-view="Notes">Notes</a>
-
+      <!-- Book selection modal -->
+      <div id="book-dialog">
+        <form id="fpath">
+          <select id="bookfn">
+            <option value="ere.epub">Early Retirement Extreme</option>
+            <option value="hpmor.epub">HPMOR</option>
+          </select>
+        </form>
       </div>
 
-      <!-- Table of Contents -->
-      <div id="tocView"></div>
-      <!-- / Table of Contents -->
+      <div id="epubreader">
+        <div id="sidebar">
+          <div id="panels">
+            <input id="searchBox" placeholder="search" type="search">
 
-      <div id="searchView">
-        <ul id="searchResults"></ul>
-      </div>
-    </div>
-    <div id="main">
+            <a id="show-Search" class="show_view icon-search" data-view="Search">Search</a>
+            <a id="show-Toc" class="show_view icon-list-1 active" data-view="Toc">TOC</a>
+            <a id="show-Notes" class="show_view icon-edit" data-view="Notes">Notes</a>
 
-      <div id="titlebar">
-        <div id="opener">
-          <a id="slider" class="icon-menu">Menu</a>
+          </div>
+
+          <!-- Table of Contents -->
+          <div id="tocView"></div>
+          <!-- / Table of Contents -->
+
+          <div id="searchView">
+            <ul id="searchResults"></ul>
+          </div>
         </div>
-        <div id="metainfo">
-          <span id="book-title"></span>
-          <span id="title-seperator">&nbsp;&nbsp;–&nbsp;&nbsp;</span>
-          <span id="chapter-title"></span>
-        </div>
+        <div id="main">
 
-        <!-- Annotation Controls -->
-        <div id="annotation-controls"></div>
-        <!-- / Annotation Controls -->
-
-      </div>
-
-      <div id="divider"></div>
-      <div id="prev" class="arrow">‹</div>
-      <div id="viewer"></div>
-      <div id="next" class="arrow">›</div>
-
-      <div id="loader"><img src="resources/reader-img/loader.gif"></div>
-    </div>
-
-    <!--<div id="hypothesis">
-      <iframe src="//hypothes.is/app.html" seamless></iframe>
-    </div>-->
-
-    <div class="modal md-effect-1" id="settings-modal">
-        <div class="md-content">
-            <h3>Settings</h3>
-            <div>
+          <div id="titlebar">
+            <div id="opener">
+              <a id="slider" class="icon-menu">Menu</a>
             </div>
-            <div class="closer icon-cancel-circled"></div>
+            <div id="metainfo">
+              <span id="book-title"></span>
+              <span id="title-seperator">&nbsp;&nbsp;–&nbsp;&nbsp;</span>
+              <span id="chapter-title"></span>
+            </div>
+
+            <!-- Annotation Controls -->
+            <div id="annotation-controls"></div>
+            <!-- / Annotation Controls -->
+
+          </div>
+
+          <div id="divider"></div>
+          <div id="prev" class="arrow">‹</div>
+          <div id="viewer"></div>
+          <div id="next" class="arrow">›</div>
+
+          <div id="loader"><img src="resources/reader-img/loader.gif"></div>
         </div>
-    </div>
-    <div class="overlay"></div>
+
+        <!--<div id="hypothesis">
+          <iframe src="//hypothes.is/app.html" seamless></iframe>
+        </div>-->
+
+        <div class="modal md-effect-1" id="settings-modal">
+            <div class="md-content">
+                <h3>Settings</h3>
+                <div>
+                </div>
+                <div class="closer icon-cancel-circled"></div>
+            </div>
+        </div>
+        <div class="overlay"></div>
+      </div>
     </body>
 </html>

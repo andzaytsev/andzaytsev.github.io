@@ -9,10 +9,17 @@
         <meta name="viewport" content="width=device-width">
         <meta name="apple-mobile-web-app-capable" content="yes">
 
+        <link rel="stylesheet" href="resources/reader-css/normalize.css">
+        <link rel="stylesheet" href="resources/reader-css/main.css">
+
 
         <!-- EPUBJS Renderer -->
+        <script src="resources/jquery.min.js"></script>
         <script src="resources/zip.min.js"></script>
         <script src="resources/epub.min.js"></script>
+        <script src="resources/hooks.min.js"></script>
+        <script src="resources/reader.min.js"></script>
+        <script src="resources/screenfull.min.js"></script>
 
         <style type="text/css">
 
@@ -71,21 +78,73 @@
          <script>
             "use strict";
 
-            var Book = ePub("books/ere.epub");
+            document.onreadystatechange = function () {
+              if (document.readyState == "complete") {
+                EPUBJS.cssPath = "resources/reader-css/";
+                ePubReader("books/ere.epub");
+              }
+            };
+            //var Book = ePub("books/ere.epub");
 
         </script>
     </head>
     <body>
-        <div id="main">
-          <div id="prev" onclick="Book.prevPage();" class="arrow">‹</div>
-          <div id="area"></div>
-          <div id="next" onclick="Book.nextPage();" class="arrow">›</div>
+      <div id="sidebar">
+      <div id="panels">
+        <input id="searchBox" placeholder="search" type="search">
+
+        <a id="show-Search" class="show_view icon-search" data-view="Search">Search</a>
+        <a id="show-Toc" class="show_view icon-list-1 active" data-view="Toc">TOC</a>
+        <a id="show-Notes" class="show_view icon-edit" data-view="Notes">Notes</a>
+
+      </div>
+
+      <!-- Table of Contents -->
+      <div id="tocView"></div>
+      <!-- / Table of Contents -->
+
+      <div id="searchView">
+        <ul id="searchResults"></ul>
+      </div>
+    </div>
+    <div id="main">
+
+      <div id="titlebar">
+        <div id="opener">
+          <a id="slider" class="icon-menu">Menu</a>
+        </div>
+        <div id="metainfo">
+          <span id="book-title"></span>
+          <span id="title-seperator">&nbsp;&nbsp;–&nbsp;&nbsp;</span>
+          <span id="chapter-title"></span>
         </div>
 
-        <script>
+        <!-- Annotation Controls -->
+        <div id="annotation-controls"></div>
+        <!-- / Annotation Controls -->
 
-            Book.renderTo("area");
+      </div>
 
-        </script>
+      <div id="divider"></div>
+      <div id="prev" class="arrow">‹</div>
+      <div id="viewer"></div>
+      <div id="next" class="arrow">›</div>
+
+      <div id="loader"><img src="resources/reader-img/loader.gif"></div>
+    </div>
+
+    <!--<div id="hypothesis">
+      <iframe src="//hypothes.is/app.html" seamless></iframe>
+    </div>-->
+
+    <div class="modal md-effect-1" id="settings-modal">
+        <div class="md-content">
+            <h3>Settings</h3>
+            <div>
+            </div>
+            <div class="closer icon-cancel-circled"></div>
+        </div>
+    </div>
+    <div class="overlay"></div>
     </body>
 </html>
